@@ -1,0 +1,1 @@
+import{E as n}from"./events.CuUm38Zg.js";import"./router.BER9ihDe.js";new n({events:{DOMContentLoaded:()=>{!function(){try{return window.self!==window.top}catch(n){return!0}}()}},logging:!1}).bind();
