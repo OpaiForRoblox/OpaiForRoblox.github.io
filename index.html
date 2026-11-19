@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenAdjust — the Adjust client, open source</title>
+<meta name="description" content="OpenAdjust is the Adjust utility client for Minecraft 1.8.9, open source. The original is closed source; this is the complete Java source of the same client, with all 100 modules and 29 commands.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#2e3247">
+<link rel="canonical" href="https://adjust.wtf/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://adjust.wtf/">
+<meta property="og:title" content="OpenAdjust — the Adjust client, open source">
+<meta property="og:description" content="The Adjust utility client for Minecraft 1.8.9, open source. All 100 modules and 29 commands, as plain Java you can read, build and change.">
+<meta property="og:image" content="https://adjust.wtf/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="hud">
+  <a class="watermark" href="#top" aria-label="OpenAdjust">
+    <img src="assets/logo.png" alt="" width="22" height="22">
+    <span class="name"><b>O</b>penAdjust</span>
+    <span class="edition">1.8.9</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#modules">Modules</a>
+    <a href="#build" class="nav-build">Build</a>
+    <a href="https://discord.adjust.wtf/">Discord</a>
+    <a href="https://github.com/yxzeroo/openadjust">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <section class="menu" id="top">
+    <img class="menu-logo" src="assets/logo.png" alt="Adjust logo" width="512" height="512">
+    <h1><span class="wordmark"><b>A</b>djust</span> <span class="menu-edition">Open Source Edition</span></h1>
+    <p class="menu-lede">The Adjust utility client for Minecraft 1.8.9, open source. The original is closed source. This is the complete Java source of the same client, with all 100 modules and 29 commands, free to read, build and change.</p>
+    <div class="menu-buttons">
+      <a class="btn btn-primary" href="https://github.com/yxzeroo/openadjust">GitHub</a>
+      <a class="btn" href="https://git.yxz.st/yxzero/openadjust">Mirror</a>
+      <a class="btn" href="https://discord.adjust.wtf/">Discord</a>
+    </div>
+    <div class="menu-buttons menu-buttons-sm">
+      <a class="btn btn-sm" href="#modules">Modules</a>
+      <a class="btn btn-sm" href="#build">Build it</a>
+    </div>
+    <p class="tip"><b>Tip:</b> Bookmark the <a href="https://git.yxz.st/yxzero/openadjust">mirror</a>. The main repo might get taken down at any time.</p>
+  </section>
+
+  <section id="open">
+    <div class="wrap split">
+      <div>
+        <h2>The original is closed source. This isn&rsquo;t.</h2>
+        <p>Adjust ships as a compiled binary. You run it, and you take its word for what it does on your machine.</p>
+        <p>OpenAdjust is that same client as plain Java. Every module, every command, the ClickGUI, the HUD and the scripting API are in the repo for you to read, build and modify.</p>
+        <p>It is based on Adjust&rsquo;s <strong>October 16th</strong> build, changelog version <strong>96</strong>.</p>
+      </div>
+      <div class="panel changelog">
+        <div class="panel-head"><span>Changelog</span><span class="dim">OpenAdjust</span></div>
+        <ul>
+          <li><span class="tag added">Added</span><span>Complete Java source of the whole client</span></li>
+          <li><span class="tag added">Added</span><span>Gradle build: one command to run it, one to build the JAR</span></li>
+          <li><span class="tag improved">Improved</span><span>Runs standalone and offline on Java 21 with LWJGL 3.3.3</span></li>
+          <li><span class="tag removed">Removed</span><span>Closed source</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="wrap">
+      <h2>All 100 modules</h2>
+      <p class="lede">Every module from the original build, in the same five categories, laid out like the in-game ClickGUI.</p>
+
+      <div class="gui-search">
+        <input id="module-search" type="search" placeholder="Search modules" aria-label="Search modules" autocomplete="off" spellcheck="false">
+        <span id="module-count" class="dim" aria-live="polite">100 modules</span>
+      </div>
+
+      <div class="gui" id="gui">
+        <div class="panel tab">
+          <div class="panel-head"><span>Combat</span><span class="dim">22</span></div>
+          <ul>
+            <li><button type="button">Anti Bot</button></li>
+            <li><button type="button">Anti Fireball</button></li>
+            <li><button type="button">Auto Block</button></li>
+            <li><button type="button">Auto Clicker</button></li>
+            <li><button type="button">Auto Heal</button></li>
+            <li><button type="button">Back Track</button></li>
+            <li><button type="button">Builder</button></li>
+            <li><button type="button">Criticals</button></li>
+            <li><button type="button">Displacement</button></li>
+            <li><button type="button">Hit Select</button></li>
+            <li><button type="button">Hitboxes</button></li>
+            <li><button type="button" class="on">Kill Aura</button></li>
+            <li><button type="button">Knockback Delay</button></li>
+            <li><button type="button">Lag Break</button></li>
+            <li><button type="button">More Knockback</button></li>
+            <li><button type="button">No Click Delay</button></li>
+            <li><button type="button">Reach</button></li>
+            <li><button type="button">Regen</button></li>
+            <li><button type="button">Target Strafe</button></li>
+            <li><button type="button">Teams Detection</button></li>
+            <li><button type="button">TP Aura</button></li>
+            <li><button type="button" class="on">Velocity</button></li>
+          </ul>
+        </div>
+
+        <div class="panel tab">
+          <div class="panel-head"><span>Exploits</span><span class="dim">11</span></div>
+          <ul>
+            <li><button type="button">Anti Spleef</button></li>
+            <li><button type="button">Chat Filter</button></li>
+            <li><button type="button">Client Spoofer</button></li>
+            <li><button type="button">Creative Tabs</button></li>
+            <li><button type="button" class="on">Disabler</button></li>
+            <li><button type="button">Incognito</button></li>
+            <li><button type="button">Join Claim</button></li>
+            <li><button type="button">Murder Mystery</button></li>
+            <li><button type="button">Phase</button></li>
+            <li><button type="button">Player Detect</button></li>
+            <li><button type="button">Plugin Scanner</button></li>
+          </ul>
+        </div>
+
+        <div class="panel tab">
+          <div class="panel-head"><span>Movement</span><span class="dim">17</span></div>
+          <ul>
+            <li><button type="button">Anti Void</button></li>
+            <li><button type="button">Double Jump</button></li>
+            <li><button type="button">Flight</button></li>
+            <li><button type="button">Inventory Move</button></li>
+            <li><button type="button">Jesus</button></li>
+            <li><button type="button">Long Jump</button></li>
+            <li><button type="button">Movement Fix</button></li>
+            <li><button type="button">No Jump Delay</button></li>
+            <li><button type="button">No Slowdown</button></li>
+            <li><button type="button">Pearl Assist</button></li>
+            <li><button type="button">Safe Walk</button></li>
+            <li><button type="button">Scaffold</button></li>
+            <li><button type="button">Speed</button></li>
+            <li><button type="button" class="on">Sprint</button></li>
+            <li><button type="button">Stasis</button></li>
+            <li><button type="button">Step</button></li>
+            <li><button type="button">Terrain</button></li>
+          </ul>
+        </div>
+
+        <div class="panel tab">
+          <div class="panel-head"><span>Player</span><span class="dim">25</span></div>
+          <ul>
+            <li><button type="button">Anti AFK</button></li>
+            <li><button type="button">Anti Aim</button></li>
+            <li><button type="button">Anti Cheat</button></li>
+            <li><button type="button">Anti Debuff</button></li>
+            <li><button type="button">Auto Hypixel</button></li>
+            <li><button type="button">Auto Potion</button></li>
+            <li><button type="button">Blink</button></li>
+            <li><button type="button">Block Swap</button></li>
+            <li><button type="button">Breaker</button></li>
+            <li><button type="button">Drop Confirm</button></li>
+            <li><button type="button">Fast Place</button></li>
+            <li><button type="button">Fast Use</button></li>
+            <li><button type="button">Game Speed</button></li>
+            <li><button type="button">Ghost Hand</button></li>
+            <li><button type="button">Guess The Build</button></li>
+            <li><button type="button" class="on">Inventory</button></li>
+            <li><button type="button">Kill Event</button></li>
+            <li><button type="button">No Chat Close</button></li>
+            <li><button type="button" class="on">No Fall</button></li>
+            <li><button type="button">No Rotate</button></li>
+            <li><button type="button">Pixel Party</button></li>
+            <li><button type="button">Seasonal Simulator</button></li>
+            <li><button type="button">Spammer</button></li>
+            <li><button type="button">Voice Chat</button></li>
+            <li><button type="button">Zombies</button></li>
+          </ul>
+        </div>
+
+        <div class="panel tab">
+          <div class="panel-head"><span>Render</span><span class="dim">25</span></div>
+          <ul>
+            <li><button type="button">Atmosphere</button></li>
+            <li><button type="button">Barrier Reveal</button></li>
+            <li><button type="button">Bed Plates</button></li>
+            <li><button type="button">Block Overlay</button></li>
+            <li><button type="button">Block Places</button></li>
+            <li><button type="button">Chams</button></li>
+            <li><button type="button">Crosshair</button></li>
+            <li><button type="button">Damage Particles</button></li>
+            <li><button type="button" class="on">ESP</button></li>
+            <li><button type="button">Freecam</button></li>
+            <li><button type="button" class="on">HUD</button></li>
+            <li><button type="button">Hurtcam</button></li>
+            <li><button type="button">Indicators</button></li>
+            <li><button type="button">Item Animations</button></li>
+            <li><button type="button">Item Physics</button></li>
+            <li><button type="button">More Particles</button></li>
+            <li><button type="button">Motion Blur</button></li>
+            <li><button type="button">Skeleton</button></li>
+            <li><button type="button">Streamer</button></li>
+            <li><button type="button">Third Person</button></li>
+            <li><button type="button">Trails</button></li>
+            <li><button type="button">Trajectories</button></li>
+            <li><button type="button">True Sight</button></li>
+            <li><button type="button">Tweaks</button></li>
+            <li><button type="button">X-Ray</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel commands">
+        <div class="panel-head"><span>Commands</span><span class="dim">29</span></div>
+        <ul>
+          <li>Help</li>
+          <li>Bind</li>
+          <li>Toggle</li>
+          <li>Click GUI</li>
+          <li>Vertical Clip</li>
+          <li>Horizontal Clip</li>
+          <li>Username</li>
+          <li>Nickname</li>
+          <li>Hypixel Statistics</li>
+          <li>Say</li>
+          <li>Configuration</li>
+          <li>Whitelist</li>
+          <li>Target</li>
+          <li>Nicks</li>
+          <li>Vanished Players</li>
+          <li>Party</li>
+          <li>Message</li>
+          <li>Reply</li>
+          <li>Friends</li>
+          <li>Block</li>
+          <li>Invite Code</li>
+          <li>Discord</li>
+          <li>Spectate</li>
+          <li>API Key</li>
+          <li>Voice Chat</li>
+          <li>Give</li>
+          <li>Cubelify Token</li>
+          <li>Emojis</li>
+          <li>Debug</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="build">
+    <div class="wrap split">
+      <div>
+        <h2>Build it yourself</h2>
+        <p>The whole client builds and runs with the Gradle wrapper that ships in the repo.</p>
+        <dl class="reqs">
+          <dt>JDK 21</dt>
+          <dd>Gradle&rsquo;s Java toolchain resolves it for you.</dd>
+          <dt>Windows x64</dt>
+          <dd>The LWJGL 3.3.3 Windows natives and <code>opus.dll</code> are bundled. For other platforms, change <code>lwjglNatives</code> in <code>build.gradle</code>.</dd>
+        </dl>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>Get the source</h3>
+          <div class="cmd"><code>git clone https://github.com/yxzeroo/openadjust</code><button type="button" class="copy">Copy</button></div>
+        </li>
+        <li>
+          <h3>Run it</h3>
+          <div class="cmd"><code>.\gradlew.bat runClient</code><button type="button" class="copy">Copy</button></div>
+          <p>Launches the client directly in offline dev mode. You can also run <code>launch_client.bat</code>.</p>
+        </li>
+        <li>
+          <h3>Build the JAR</h3>
+          <div class="cmd"><code>.\gradlew.bat build</code><button type="button" class="copy">Copy</button></div>
+          <p>The JAR ends up in <code>build/libs/adjust-client-1.8.9.jar</code>.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="credits">
+    <div class="wrap split">
+      <div>
+        <h2>Restored entirely by AI</h2>
+        <p>The source was completely restored by AI. Zero human work.</p>
+        <p class="quote">Native Image cannot stop open source! :)</p>
+      </div>
+      <div class="panel credits">
+        <div class="panel-head"><span>Credits</span></div>
+        <dl>
+          <div><dt>Claude Opus 5.5</dt><dd>Initial planning and about 20% of the job</dd></div>
+          <div><dt>GPT 6.1 Sol</dt><dd>Large parts of the restoration</dd></div>
+          <div><dt>Gemini 4 Carbon</dt><dd>Large parts of the restoration and the final bug fixes</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="get">
+    <div class="wrap">
+      <h2>Get OpenAdjust</h2>
+      <div class="links">
+        <a class="panel link" href="https://github.com/yxzeroo/openadjust">
+          <span class="link-kind">Main repository</span>
+          <span class="link-title">github.com/yxzeroo/openadjust</span>
+          <span class="link-note">Source, issues and the README.</span>
+        </a>
+        <a class="panel link" href="https://git.yxz.st/yxzero/openadjust">
+          <span class="link-kind">Backup mirror</span>
+          <span class="link-title">git.yxz.st/yxzero/openadjust</span>
+          <span class="link-note">Bookmark this one in case the main repo goes down.</span>
+        </a>
+        <a class="panel link" href="https://discord.adjust.wtf/">
+          <span class="link-kind">Community</span>
+          <span class="link-title">discord.adjust.wtf</span>
+          <span class="link-note">Join the community on Discord.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span class="name"><b>O</b>penAdjust</span> is an unofficial open-source project. It is not affiliated with the original Adjust client, Mojang or Microsoft.</p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
